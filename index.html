@@ -5,74 +5,329 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rosenilda Falcão | Psicóloga Clínica</title>
 <meta name="description" content="Rosenilda Falcão — Psicóloga Clínica em Grande Vitória, ES. Terapia individual, de casal e infantil com acolhimento e escuta especializada.">
-
 <meta property="og:title" content="Rosenilda Falcão - Psicóloga">
 <meta property="og:description" content="Seu bem-estar está em boas mãos. Psicóloga Clínica em Grande Vitória, ES.">
 <meta property="og:image" content="logo.png">
 <meta property="og:type" content="website">
-
 <link rel="icon" href="logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-  :root{
-    --teal-deep:#3F5C55;
-    --teal:#5F8880;
-    --teal-soft:#B9D2CC;
-    --mint:#EDF4F2;
-    --cream:#FAF8F4;
-    --white:#FFFFFF;
-    --ink:#2C3A37;
-    --gold:#C8A96A;
-  }
+:root{--teal-deep:#3F5C55;--teal:#5F8880;--teal-soft:#B9D2CC;--mint:#EDF4F2;--cream:#FAF8F4;--white:#FFFFFF;--ink:#2C3A37;--gold:#C8A96A;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--teal-deep);line-height:1.15;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+section{padding:110px 8vw;}
+.eyebrow{font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;display:inline-block;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:40px;font-weight:500;font-size:0.95rem;transition:all .3s ease;cursor:pointer;border:1px solid transparent;}
+.btn-primary{background:var(--teal-deep);color:var(--white);}
+.btn-primary:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 12px 24px rgba(63,92,85,.25);}
+.btn-outline{border-color:var(--teal-deep);color:var(--teal-deep);}
+.btn-outline:hover{background:var(--teal-deep);color:var(--white);}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(250,248,244,0.85);backdrop-filter:blur(10px);transition:box-shadow .3s ease, padding .3s ease;padding:18px 6vw;}
+header.scrolled{box-shadow:0 6px 24px rgba(63,92,85,.10);padding:12px 6vw;}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;}
+.logo-group{display:flex;align-items:center;gap:12px;}
+.logo-group img{height:46px;width:46px;border-radius:50%;object-fit:cover;}
+.logo-group span{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--teal-deep);font-weight:600;}
+nav ul{display:flex;gap:40px;list-style:none;}
+nav ul li a{font-size:0.92rem;color:var(--ink);position:relative;padding-bottom:4px;}
+nav ul li a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--teal-deep);transition:width .3s ease;}
+nav ul li a:hover::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:24px;}
+.nav-cta .btn{padding:11px 26px;font-size:0.85rem;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1100;}
+.hamburger span{width:26px;height:2px;background:var(--teal-deep);transition:all .3s ease;}
+.mobile-drawer{position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;background:var(--white);z-index:1050;box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:right .4s cubic-bezier(.4,0,.2,1);padding:100px 40px 40px;}
+.mobile-drawer.open{right:0;}
+.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:28px;}
+.mobile-drawer ul li a{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--teal-deep);}
+.drawer-overlay{position:fixed;inset:0;background:rgba(44,58,55,.4);z-index:1040;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.drawer-overlay.open{opacity:1;pointer-events:all;}
+.hero{padding:180px 8vw 100px;display:grid;grid-template-columns:1fr 0.9fr;gap:60px;align-items:center;position:relative;max-width:1400px;margin:0 auto;}
+.hero-svg{position:absolute;top:60px;left:2vw;width:220px;opacity:.5;z-index:0;}
+.hero-text{position:relative;z-index:1;}
+.hero-text p.tagline{font-size:1.15rem;color:var(--teal);margin:22px 0 34px;max-width:480px;}
+.hero-text h1{font-size:clamp(2.6rem,5vw,4.2rem);}
+.hero-text h1 em{font-style:italic;color:var(--teal);}
+.quote-box{margin-top:44px;padding-left:26px;border-left:2px solid var(--gold);max-width:480px;}
+.quote-box p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--teal-deep);}
+.quote-box span{font-size:0.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block;margin-top:10px;}
+.hero-actions{display:flex;gap:18px;margin-top:44px;flex-wrap:wrap;}
+.hero-image{position:relative;}
+.hero-image .frame{border-radius:16px;overflow:hidden;box-shadow:0 30px 60px rgba(63,92,85,.22);aspect-ratio:4/5;}
+.hero-image .frame img{width:100%;height:100%;object-fit:cover;}
+.hero-image::before{content:'';position:absolute;top:-24px;right:-24px;width:100%;height:100%;border:2px solid var(--teal-soft);border-radius:16px;z-index:-1;}
+.sobre{background:var(--mint);display:grid;grid-template-columns:0.8fr 1.2fr;gap:70px;align-items:center;}
+.sobre-image{position:relative;}
+.sobre-image img{border-radius:16px;aspect-ratio:3/4;object-fit:cover;box-shadow:0 24px 50px rgba(63,92,85,.18);}
+.sobre-content p{margin-bottom:18px;color:var(--ink);opacity:.9;font-size:1.02rem;}
+.sobre-content h2{font-size:2.6rem;margin-bottom:24px;}
+.formacao{max-width:1100px;margin:0 auto;}
+.formacao-header{text-align:center;margin-bottom:70px;}
+.formacao-header h2{font-size:2.6rem;}
+.timeline{display:flex;flex-direction:column;gap:0;}
+.timeline-item{display:grid;grid-template-columns:150px 1px 1fr;gap:30px;padding:34px 0;border-bottom:1px solid rgba(63,92,85,.12);}
+.timeline-item:last-child{border-bottom:none;}
+.timeline-date{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--teal);font-style:italic;padding-top:2px;}
+.timeline-line{background:var(--teal-soft);}
+.timeline-content h3{font-size:1.4rem;margin-bottom:8px;}
+.timeline-content p{color:var(--ink);opacity:.85;font-size:0.96rem;}
+.servicos{background:var(--teal-deep);color:var(--white);}
+.servicos .eyebrow{color:var(--teal-soft);}
+.servicos h2{color:var(--white);font-size:2.6rem;max-width:600px;margin-bottom:60px;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.service-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:40px 32px;transition:transform .3s ease, background .3s ease;}
+.service-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.1);}
+.service-card .num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);font-style:italic;}
+.service-card h3{color:var(--white);font-size:1.5rem;margin:16px 0 12px;}
+.service-card p{opacity:.8;font-size:0.95rem;}
+.abordagem{max-width:900px;margin:0 auto;text-align:center;}
+.abordagem h2{font-size:2.4rem;margin-bottom:28px;}
+.abordagem p{font-size:1.08rem;opacity:.85;max-width:720px;margin:0 auto 40px;}
+.contato{background:var(--mint);text-align:center;}
+.contato-inner{max-width:680px;margin:0 auto;}
+.contato h2{font-size:2.8rem;margin-bottom:20px;}
+.contato p.lead{font-size:1.05rem;opacity:.85;margin-bottom:40px;}
+.contato-details{display:flex;justify-content:center;gap:50px;margin-top:50px;flex-wrap:wrap;}
+.contato-item{text-align:left;}
+.contato-item .label{font-size:0.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block;}
+.contato-item a, .contato-item span.value{font-size:1.05rem;color:var(--teal-deep);font-weight:500;}
+footer{background:var(--teal-deep);color:var(--white);padding:50px 8vw 30px;text-align:center;}
+footer .foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:16px;}
+footer .socials{display:flex;justify-content:center;gap:22px;margin:20px 0;}
+footer .socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .3s ease;}
+footer .socials a:hover{background:rgba(255,255,255,.15);}
+footer .copy{font-size:0.8rem;opacity:.6;margin-top:20px;}
+.back-to-top{position:fixed;bottom:26px;right:26px;z-index:900;width:52px;height:52px;border-radius:50%;background:var(--teal-deep);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(63,92,85,.35);opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s ease, transform .3s ease, background .3s ease;}
+.back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
+.back-to-top:hover{background:var(--teal);}
+@media(max-width:920px){
+nav ul, .nav-cta .btn-outline{display:none;}
+.hamburger{display:flex;}
+.hero, .sobre{grid-template-columns:1fr;}
+.hero-image{order:-1;max-width:340px;margin:0 auto;}
+.cards-grid{grid-template-columns:1fr;}
+.timeline-item{grid-template-columns:100px 1px 1fr;gap:18px;}
+section{padding:80px 6vw;}
+.contato-details{gap:30px;}
+}
+</style>
+</head>
+<body>
 
-  *{margin:0;padding:0;box-sizing:border-box;}
+<header id="header">
+  <div class="nav-wrap">
+    <div class="logo-group">
+      <img src="logo.png" alt="Rosenilda Falcão">
+      <span>Rosenilda Falcão</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank" class="btn btn-outline">Instagram</a>
+      <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" class="btn btn-primary">Fale comigo</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
 
-  html{scroll-behavior:smooth;}
+<div class="drawer-overlay" id="overlay"></div>
+<div class="mobile-drawer" id="drawer">
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank">Instagram</a></li>
+  </ul>
+</div>
 
-  body{
-    font-family:'Poppins',sans-serif;
-    color:var(--ink);
-    background:var(--cream);
-    line-height:1.65;
-    overflow-x:hidden;
-  }
+<section class="hero" id="inicio">
+  <svg class="hero-svg" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 60C90 40 60 20 30 30C10 37 15 65 45 68C65 70 90 62 100 60Z" stroke="#5F8880" stroke-width="1.4"/>
+    <path d="M100 60C110 40 140 20 170 30C190 37 185 65 155 68C135 70 110 62 100 60Z" stroke="#5F8880" stroke-width="1.4"/>
+    <path d="M100 60C92 78 88 100 100 130C112 100 108 78 100 60Z" stroke="#5F8880" stroke-width="1.4"/>
+  </svg>
+  <div class="hero-text">
+    <span class="eyebrow">Psicóloga Clínica · Grande Vitória, ES</span>
+    <h1>Seu bem-estar<br>está em <em>boas mãos</em></h1>
+    <p class="tagline">Acolhimento, escuta e orientação psicológica para atravessar os momentos complexos da vida com mais clareza e leveza.</p>
+    <div class="quote-box">
+      <p>"A maior descoberta da minha geração é que os seres humanos podem alterar suas vidas alterando suas atitudes mentais."</p>
+      <span>William James</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" class="btn btn-primary">Agendar conversa</a>
+      <a href="#sobre" class="btn btn-outline">Conhecer meu trabalho</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="frame"><img src="hero.jpg" alt="Rosenilda Falcão"></div>
+  </div>
+</section>
 
-  h1,h2,h3,h4{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:600;
-    color:var(--teal-deep);
-    line-height:1.15;
-  }
+<section class="sobre" id="sobre">
+  <div class="sobre-image">
+    <img src="sobre.jpg" alt="Rosenilda Falcão em atendimento">
+  </div>
+  <div class="sobre-content">
+    <span class="eyebrow">Sobre mim</span>
+    <h2>Atendendo pacientes desde 2023</h2>
+    <p>Sou Rosenilda Falcão, psicóloga clínica atuando na Grande Vitória, ES. Estou aqui para orientar você em relação a assuntos complexos e difíceis da sua vida, oferecendo um acompanhamento terapêutico ético e especializado.</p>
+    <p>Desde 2023, o bem-estar de cada paciente é a minha prioridade. Não meço esforços para ajudar as pessoas que passam por mim a superarem seus obstáculos e reconstruírem, aos poucos, uma relação mais saudável consigo mesmas.</p>
+    <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20saber%20mais%20sobre%20o%20seu%20trabalho." target="_blank" class="btn btn-primary">Entre em contato</a>
+  </div>
+</section>
 
-  a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;}
-  section{padding:110px 8vw;}
-  .eyebrow{
-    font-size:0.78rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--teal);
-    font-weight:600;
-    margin-bottom:14px;
-    display:inline-block;
+<section class="formacao" id="formacao">
+  <div class="formacao-header">
+    <span class="eyebrow">Formação e experiência</span>
+    <h2>Trajetória construída com dedicação</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2018 — 2022</div>
+      <div class="timeline-line"></div>
+      <div class="timeline-content">
+        <h3>Formação Acadêmica em Psicologia</h3>
+        <p>Graduada em Psicologia Clínica pela Faculdade Multivix, em Cariacica - ES.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Desde 2023</div>
+      <div class="timeline-line"></div>
+      <div class="timeline-content">
+        <h3>Pós-graduanda em Terapia Cognitivo Comportamental</h3>
+        <p>Abordagem utilizada para auxiliar o paciente em questões pessoais e profissionais — relacionamentos, escolhas de carreira, momentos de luto e dificuldades de aprendizagem.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Desde 2023</div>
+      <div class="timeline-line"></div>
+      <div class="timeline-content">
+        <h3>Pós-graduanda em Neuropsicologia</h3>
+        <p>Especialidade voltada ao estudo das relações entre cérebro e comportamento, atuando no diagnóstico e reabilitação de alterações cognitivas.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Desde 2023</div>
+      <div class="timeline-line"></div>
+      <div class="timeline-content">
+        <h3>Pós-graduanda em Psicologia Sistêmica</h3>
+        <p>Orientação psicoterapêutica que compreende o comportamento a partir dos relacionamentos e vínculos que cada pessoa constrói ao longo da vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <span class="eyebrow">Como posso te ajudar</span>
+  <h2>Orientação em cada passo do processo terapêutico</h2>
+  <div class="cards-grid">
+    <div class="service-card">
+      <span class="num">01</span>
+      <h3>Terapia de grupo</h3>
+      <p>Espaço coletivo de escuta e troca, construído para que você se sinta mais feliz e mais saudável em comunidade.</p>
+    </div>
+    <div class="service-card">
+      <span class="num">02</span>
+      <h3>Terapia de casal</h3>
+      <p>Um espaço seguro para fortalecer a comunicação e reconstruir a conexão entre você e seu parceiro ou parceira.</p>
+    </div>
+    <div class="service-card">
+      <span class="num">03</span>
+      <h3>Terapia de desenvolvimento infantil</h3>
+      <p>Assistência de qualidade para acompanhar o desenvolvimento emocional das crianças em cada etapa da vida.</p>
+    </div>
+  </div>
+</section>
+
+<section class="abordagem">
+  <span class="eyebrow">Sobre a terapia</span>
+  <h2>Um processo de cicatrização, não uma solução rápida</h2>
+  <p>Implemento métodos eficazes de psicoterapia para incentivar a autocompreensão dos pacientes e encorajá-los a adotar novas atitudes e sentimentos em relação à própria vida. A terapia é um processo que requer participação e investimento — tanto do paciente quanto do profissional. Pequenas mudanças no comportamento autodestrutivo e o cuidado com sentimentos de tristeza, medo e dor podem transformar a qualidade de vida.</p>
+  <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20iniciar%20um%20acompanhamento." target="_blank" class="btn btn-primary">Iniciar meu acompanhamento</a>
+</section>
+
+<section class="contato" id="contato">
+  <div class="contato-inner">
+    <span class="eyebrow">Contato</span>
+    <h2>Vamos conversar?</h2>
+    <p class="lead">Entre em contato e dê o primeiro passo em direção ao seu bem-estar.</p>
+    <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" class="btn btn-primary">Agendar pelo WhatsApp</a>
+    <div class="contato-details">
+      <div class="contato-item">
+        <span class="label">WhatsApp</span>
+        <a href="https://wa.me/5527995758687" target="_blank">(27) 99575-8687</a>
+      </div>
+      <div class="contato-item">
+        <span class="label">E-mail</span>
+        <a href="mailto:rosenildafalcao@gmail.com">rosenildafalcao@gmail.com</a>
+      </div>
+      <div class="contato-item">
+        <span class="label">Instagram</span>
+        <a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank">@psi.rosefalcao</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Rosenilda Falcão</div>
+  <p style="opacity:.75;font-size:0.9rem;">Psicóloga Clínica · Grande Vitória, ES</p>
+  <div class="socials">
+    <a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    </a>
+    <a href="https://wa.me/5527995758687" target="_blank" aria-label="WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.2 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3Z"/></svg>
+    </a>
+  </div>
+  <p class="copy">© 2026 Rosenilda Falcão. Todos os direitos reservados.</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  const header = document.getElementById('header');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const overlay = document.getElementById('overlay');
+
+  function toggleDrawer(){
+    drawer.classList.toggle('open');
+    overlay.classList.toggle('open');
   }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:16px 34px;
-    border-radius:40px;
-    font-weight:500;
-    font-size:0.95rem;
-    transition:all .3s ease;
-    cursor:pointer;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:var(--teal-deep);color:var(--white);}
-  .btn-primary:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 12px 24px rgba(63,92,85,.25);}
-  .btn-outline{border-color:var(--teal-deep);color:var(--teal-deep);}
-  .btn-outline:ho
+  hamburger.addEventListener('click', toggleDrawer);
+  overlay.addEventListener('click', toggleDrawer);
+  document.querySelectorAll('.mobile-drawer a').forEach(a=>{
+    a.addEventListener('click', ()=>{ drawer.classList.remove('open'); overlay.classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>
