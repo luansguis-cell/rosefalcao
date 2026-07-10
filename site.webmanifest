@@ -1,0 +1,18 @@
+{
+  "name": "Rose Falcão - Psicóloga Clínica",
+  "short_name": "Rose Falcão",
+  "description": "Psicóloga Clínica em Grande Vitória, ES — atendimento acolhedor para mulheres e adolescentes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F4",
+  "theme_color": "#3F5C55",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "logo-sem.png",
+      "sizes": "816x816",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
