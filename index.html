@@ -60,10 +60,14 @@
       "telephone": "+5527995758687",
       "email": "psi.rosefalcao@gmail.com",
       "priceRange": "$$",
+      "hasMap": "https://maps.app.goo.gl/qzjWYNuQ7HdkDjpc6",
       "areaServed": { "@type": "Place", "name": "Grande Vitória, ES" },
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Rua Presidente Dutra, 37",
+        "addressLocality": "Campo Grande",
         "addressRegion": "ES",
+        "postalCode": "29146-090",
         "addressCountry": "BR"
       },
       "founder": { "@id": "https://psirosefalcao.com.br/#pessoa" },
@@ -172,7 +176,8 @@ nav ul li a:hover::after{width:100%;}
 .hero-svg{position:absolute;top:50%;right:4vw;width:280px;opacity:.5;z-index:0;transform:translateY(-50%);}
 .hero-text{position:relative;z-index:1;max-width:620px;}
 .hero-text .eyebrow{color:var(--teal-soft);}
-.hero-text p.tagline{font-size:1.15rem;color:rgba(255,255,255,.85);margin:22px 0 34px;max-width:480px;}
+.hero-text p.tagline{font-size:1.15rem;color:rgba(255,255,255,.85);margin:22px 0 12px;max-width:480px;}
+.hero-text p.tagline-sub{font-size:1rem;color:rgba(255,255,255,.72);margin:0 0 34px;max-width:480px;}
 .hero-text h1{font-size:clamp(2.6rem,5vw,4.2rem);color:var(--white);}
 .hero-text h1 em{font-style:italic;color:var(--teal-soft);}
 .quote-box{margin-top:44px;padding-left:26px;border-left:2px solid var(--gold);max-width:480px;}
@@ -187,6 +192,7 @@ nav ul li a:hover::after{width:100%;}
 .hero-text .eyebrow{animation-delay:.1s;}
 .hero-text h1{animation-delay:.25s;}
 .hero-text .tagline{animation-delay:.4s;}
+.hero-text .tagline-sub{animation-delay:.48s;}
 .hero-text .quote-box{animation-delay:.55s;}
 .hero-text .hero-actions{animation-delay:.7s;}
 @keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
@@ -196,6 +202,7 @@ nav ul li a:hover::after{width:100%;}
 .sobre-content{padding:100px 6vw 100px 0;}
 .sobre-content p{margin-bottom:18px;color:var(--ink);opacity:.9;font-size:1.02rem;}
 .sobre-content h2{font-size:2.6rem;margin-bottom:24px;}
+.quote-line{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--teal-deep);font-size:1.15rem;line-height:1.5;margin-bottom:20px;}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .cards-grid .service-card:nth-child(1){transition-delay:0s;}
@@ -232,13 +239,20 @@ nav ul li a:hover::after{width:100%;}
 .abordagem-image::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg, var(--cream) 0%, transparent 42%);}
 .abordagem h2{font-size:2.4rem;margin-bottom:28px;}
 .contato{background:var(--mint);text-align:center;}
-.contato-inner{max-width:680px;margin:0 auto;}
+.contato-inner{max-width:920px;margin:0 auto;}
 .contato h2{font-size:2.8rem;margin-bottom:20px;}
 .contato p.lead{font-size:1.05rem;opacity:.85;margin-bottom:40px;}
-.contato-details{display:flex;justify-content:center;gap:50px;margin-top:50px;flex-wrap:wrap;}
+.contato-details{display:flex;justify-content:center;align-items:center;gap:60px;margin-top:50px;flex-wrap:wrap;}
+.contato-list{display:flex;flex-direction:column;gap:22px;}
 .contato-item{text-align:left;}
 .contato-item .label{font-size:0.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block;}
-.contato-item a, .contato-item span.value{font-size:1.05rem;color:var(--teal-deep);font-weight:500;}
+.contato-item a{font-size:1.05rem;color:var(--teal-deep);font-weight:500;}
+.contato-map{display:inline-flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:24px 30px;background:var(--white);border:1px solid rgba(63,92,85,.12);border-radius:16px;max-width:300px;transition:transform .3s ease, box-shadow .3s ease;}
+.contato-map:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(63,92,85,.12);}
+.contato-map svg{color:var(--teal);margin-bottom:8px;}
+.contato-map .label{margin-bottom:4px;}
+.contato-map .map-address{font-size:1.05rem;color:var(--teal-deep);font-weight:500;}
+.contato-map .map-note{font-size:0.85rem;color:var(--ink);opacity:.7;margin-top:6px;max-width:320px;}
 footer{background:var(--teal-deep);color:var(--white);padding:26px 8vw;}
 .foot-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;max-width:1280px;margin:0 auto;}
 .foot-left{display:flex;align-items:center;gap:14px;}
@@ -319,7 +333,10 @@ nav ul, .nav-cta .btn-outline{display:none;}
 .pmv-grid{grid-template-columns:1fr;}
 .princ-grid{grid-template-columns:1fr 1fr;}
 section{padding:80px 6vw;}
-.contato-details{gap:30px;}
+.contato-details{gap:26px;}
+.contato-map{margin-top:10px;max-width:320px;}
+.btn{padding:12px 22px;font-size:0.85rem;gap:6px;}
+.hero-actions{gap:12px;}
 }
 </style>
 </head>
@@ -377,10 +394,11 @@ section{padding:80px 6vw;}
   <div class="hero-text">
     <span class="eyebrow">Psicóloga · CRP 16/9728 · Grande Vitória, ES</span>
     <h1>Seu bem-estar<br>em <em>boas mãos</em></h1>
-    <p class="tagline">Acolhimento, escuta qualificada e orientação psicológica para mulheres que buscam se reencontrar, atravessando os momentos difíceis da vida com mais clareza, equilíbrio e sentido.</p>
+    <p class="tagline">Psicoterapia para quem deseja reencontrar o equilíbrio emocional.</p>
+    <p class="tagline-sub">Com um olhar especial para mulheres que desejam reconstruir sua autoestima, fortalecer sua identidade e florescer novamente.</p>
     <div class="quote-box">
-      <p>"Ao tocar uma alma humana, seja apenas outra alma humana."</p>
-      <span>Carl Jung</span>
+      <p>"As feridas contam parte da sua história, mas nunca terão a última palavra sobre quem você é."</p>
+      <span>Rose Falcão</span>
     </div>
     <div class="hero-actions">
       <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-light">Agendar conversa</a>
@@ -392,12 +410,16 @@ section{padding:80px 6vw;}
 <section class="sobre" id="sobre">
   <div class="sobre-image"></div>
   <div class="sobre-content reveal">
-    <span class="eyebrow">Quem sou</span>
+    <span class="eyebrow">Sobre mim</span>
     <h2>Cuidar de vidas é mais que uma profissão</h2>
-    <p>Sou Rose Falcão, psicóloga, mulher, mãe e avó. Acredito que cada pessoa carrega uma história única, marcada por desafios, perdas, conquistas e recomeços. Foi por compreender que ninguém atravessa a vida sem cicatrizes que escolhi dedicar minha caminhada ao cuidado emocional das pessoas.</p>
-    <p>Minha própria trajetória foi construída entre desafios e obstáculos, e aprendi cedo que as circunstâncias não precisam determinar o destino de ninguém. Com perseverança e esperança, transformei dificuldades em aprendizado e encontrei na Psicologia uma forma de servir, acolher e contribuir para a transformação de vidas.</p>
-    <p>Sou especialista em Terapia Cognitivo-Comportamental (TCC), pós-graduanda em Neuropsicologia e estou concluindo minha especialização em Orientação Parental.</p>
-    <p>Conheça <a href="#servicos" style="color:var(--teal-deep);font-weight:500;text-decoration:underline;">como posso te ajudar</a> ou fale comigo diretamente pelo <a href="#contato" style="color:var(--teal-deep);font-weight:500;text-decoration:underline;">WhatsApp</a>.</p>
+    <p class="quote-line">"Cada pessoa carrega uma história. E toda história merece ser ouvida com respeito, acolhimento e esperança."</p>
+    <p>Sou Rose Falcão, psicóloga clínica. Ao longo da minha trajetória, tive o privilégio de acompanhar crianças, adolescentes, adultos e famílias em diferentes momentos da vida. Minha experiência no atendimento infantil marcou profundamente minha forma de cuidar, ensinando-me que cada ser humano precisa ser compreendido em sua singularidade.</p>
+    <p>Hoje, meu coração também se volta de maneira especial ao cuidado emocional da mulher. Na prática clínica, percebi quantas chegam ao consultório carregando dores silenciosas, relacionamentos difíceis, sobrecarga, culpa e uma autoestima fragilizada. É por elas que tenho dedicado um olhar cada vez mais atento, acreditando que toda mulher pode reencontrar sua força, sua identidade e florescer novamente.</p>
+    <p>Minha atuação é fundamentada na Terapia Cognitivo-Comportamental (TCC) e vem sendo ampliada pelos estudos em Neuropsicologia, área na qual estou me especializando para oferecer avaliações neuropsicológicas e um cuidado cada vez mais completo. Também estou em fase de conclusão da especialização em Orientação Parental, fortalecendo minha atuação junto às famílias e contribuindo para a construção de vínculos mais saudáveis, seguros e conscientes desde a base.</p>
+    <p>Acredito que fortalecer uma família é cuidar do ambiente onde histórias são construídas, emoções são aprendidas e vidas são transformadas.</p>
+    <p>Independentemente da sua história, do seu momento ou da sua idade, acredito que ninguém deveria enfrentar suas dores sozinho.</p>
+    <p>Meu compromisso é oferecer um espaço seguro, ético e acolhedor para que você possa compreender sua história, fortalecer seus recursos emocionais e construir novos caminhos.</p>
+    <p class="quote-line">"Porque acredito que toda pessoa merece a oportunidade de florescer, e que o cuidado certo pode transformar não apenas uma vida, mas também as relações que a sustentam."</p>
   </div>
 </section>
 
@@ -485,6 +507,7 @@ section{padding:80px 6vw;}
   <div class="abordagem-content reveal">
     <span class="eyebrow">Sobre a terapia</span>
     <h2>Um processo de cicatrização,<br>não uma solução rápida</h2>
+    <p class="quote-line">"Não acredito em atendimentos padronizados. Acredito em pessoas, em histórias e na capacidade que cada ser humano tem de reconstruir sua própria vida quando encontra acolhimento, conhecimento e um lugar seguro para florescer."</p>
     <p>Implemento métodos eficazes de psicoterapia para incentivar a autocompreensão dos pacientes e encorajá-los a adotar novas atitudes e sentimentos em relação à própria vida. A terapia é um processo que requer participação e investimento, tanto do paciente quanto do profissional. Pequenas mudanças no comportamento autodestrutivo e o cuidado com sentimentos de tristeza, medo e dor podem transformar a qualidade de vida.</p>
   </div>
   <div class="abordagem-image"></div>
@@ -558,18 +581,26 @@ section{padding:80px 6vw;}
     <p class="lead">Entre em contato e dê o primeiro passo em direção ao seu bem-estar.</p>
     <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-primary">Agendar pelo WhatsApp</a>
     <div class="contato-details">
-      <div class="contato-item">
-        <span class="label">WhatsApp</span>
-        <a href="https://wa.me/5527995758687" target="_blank" rel="noopener">(27) 99575-8687</a>
+      <div class="contato-list">
+        <div class="contato-item">
+          <span class="label">Instagram</span>
+          <a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank" rel="noopener">@psi.rosefalcao</a>
+        </div>
+        <div class="contato-item">
+          <span class="label">WhatsApp</span>
+          <a href="https://wa.me/5527995758687" target="_blank" rel="noopener">(27) 99575-8687</a>
+        </div>
+        <div class="contato-item">
+          <span class="label">E-mail</span>
+          <a href="mailto:psi.rosefalcao@gmail.com">psi.rosefalcao@gmail.com</a>
+        </div>
       </div>
-      <div class="contato-item">
-        <span class="label">E-mail</span>
-        <a href="mailto:psi.rosefalcao@gmail.com">psi.rosefalcao@gmail.com</a>
-      </div>
-      <div class="contato-item">
-        <span class="label">Instagram</span>
-        <a href="https://www.instagram.com/psi.rosefalcao?igsh=eTNqeWJncTUwOHQ3" target="_blank" rel="noopener">@psi.rosefalcao</a>
-      </div>
+      <a href="https://maps.app.goo.gl/qzjWYNuQ7HdkDjpc6" target="_blank" rel="noopener" class="contato-map">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span class="label">Atendimento presencial</span>
+        <span class="map-address">Rua Presidente Dutra, 37, Campo Grande, ES, CEP 29146-090</span>
+        <span class="map-note">Em parceria com a Clínica Essência Plena, ao lado da Bioscan. Toque para ver no mapa.</span>
+      </a>
     </div>
   </div>
 </section>
