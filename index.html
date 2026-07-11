@@ -152,7 +152,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
 .btn-primary:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 12px 24px rgba(63,92,85,.25);}
 .btn-outline{border-color:var(--teal-deep);color:var(--teal-deep);}
 .btn-outline:hover{background:var(--teal-deep);color:var(--white);}
-header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(250,248,244,0.85);backdrop-filter:blur(10px);transition:box-shadow .3s ease, padding .3s ease;padding:18px 6vw;}
+header{position:fixed;top:0;left:0;width:100%;z-index:1100;background:rgba(250,248,244,0.85);backdrop-filter:blur(10px);transition:box-shadow .3s ease, padding .3s ease;padding:18px 6vw;}
 header.scrolled{box-shadow:0 6px 24px rgba(63,92,85,.10);padding:12px 6vw;}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;}
 .logo-group{display:flex;align-items:center;gap:12px;}
@@ -166,6 +166,9 @@ nav ul li a:hover::after{width:100%;}
 .nav-cta .btn{padding:11px 26px;font-size:0.85rem;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1100;}
 .hamburger span{width:26px;height:2px;background:var(--teal-deep);transition:all .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .mobile-drawer{position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;background:var(--white);z-index:1050;box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:right .4s cubic-bezier(.4,0,.2,1);padding:100px 40px 40px;}
 .mobile-drawer.open{right:0;}
 .mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:28px;}
@@ -176,8 +179,7 @@ nav ul li a:hover::after{width:100%;}
 .hero-svg{position:absolute;top:50%;right:4vw;width:280px;opacity:.5;z-index:0;transform:translateY(-50%);}
 .hero-text{position:relative;z-index:1;max-width:620px;}
 .hero-text .eyebrow{color:var(--teal-soft);}
-.hero-text p.tagline{font-size:1.15rem;color:rgba(255,255,255,.85);margin:22px 0 12px;max-width:480px;}
-.hero-text p.tagline-sub{font-size:1rem;color:rgba(255,255,255,.72);margin:0 0 34px;max-width:480px;}
+.hero-text p.tagline-sub{font-size:1.05rem;color:rgba(255,255,255,.78);margin:22px 0 34px;max-width:480px;}
 .hero-text h1{font-size:clamp(2.6rem,5vw,4.2rem);color:var(--white);}
 .hero-text h1 em{font-style:italic;color:var(--teal-soft);}
 .quote-box{margin-top:44px;padding-left:26px;border-left:2px solid var(--gold);max-width:480px;}
@@ -191,8 +193,7 @@ nav ul li a:hover::after{width:100%;}
 .hero-text > *{opacity:0;transform:translateY(22px);animation:fadeInUp .9s ease forwards;}
 .hero-text .eyebrow{animation-delay:.1s;}
 .hero-text h1{animation-delay:.25s;}
-.hero-text .tagline{animation-delay:.4s;}
-.hero-text .tagline-sub{animation-delay:.48s;}
+.hero-text .tagline-sub{animation-delay:.4s;}
 .hero-text .quote-box{animation-delay:.55s;}
 .hero-text .hero-actions{animation-delay:.7s;}
 @keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
@@ -393,15 +394,14 @@ section{padding:80px 6vw;}
 <section class="hero" id="inicio">
   <div class="hero-text">
     <span class="eyebrow">Psicóloga · CRP 16/9728 · Grande Vitória, ES</span>
-    <h1>Seu bem-estar<br>em <em>boas mãos</em></h1>
-    <p class="tagline">Psicoterapia para quem deseja reencontrar o equilíbrio emocional.</p>
+    <h1>Psicoterapia para quem deseja<br>reencontrar o <em>equilíbrio emocional</em></h1>
     <p class="tagline-sub">Com um olhar especial para mulheres que desejam reconstruir sua autoestima, fortalecer sua identidade e florescer novamente.</p>
     <div class="quote-box">
       <p>"As feridas contam parte da sua história, mas nunca terão a última palavra sobre quem você é."</p>
       <span>Rose Falcão</span>
     </div>
     <div class="hero-actions">
-      <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-light">Agendar conversa</a>
+      <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-light">Inicie sua jornada</a>
       <a href="#sobre" class="btn btn-ghost">Conhecer meu trabalho</a>
     </div>
   </div>
@@ -431,15 +431,15 @@ section{padding:80px 6vw;}
   <div class="pmv-grid">
     <div class="pmv-card reveal">
       <span class="pmv-label">Propósito</span>
-      <p>Acolher mulheres em seus momentos mais difíceis, na dor da rejeição, da traição e dos relacionamentos abusivos, ajudando-as a resgatar sua autonomia, seu valor e construir uma vida mais equilibrada e significativa.</p>
+      <p>Acolher pessoas em seus momentos mais difíceis, na dor da rejeição, da traição e dos relacionamentos abusivos, ajudando-as a resgatar sua autonomia, seu valor e construir uma vida mais equilibrada e significativa.</p>
     </div>
     <div class="pmv-card reveal">
       <span class="pmv-label">Missão</span>
-      <p>Promover saúde emocional feminina por meio de um atendimento ético, humanizado e fundamentado na ciência, oferecendo um espaço seguro para que cada mulher compreenda sua história e construa mudanças duradouras.</p>
+      <p>Promover saúde emocional por meio de um atendimento ético, humanizado e fundamentado na ciência, oferecendo um espaço seguro para que cada pessoa compreenda sua história e construa mudanças duradouras.</p>
     </div>
     <div class="pmv-card reveal">
       <span class="pmv-label">Visão</span>
-      <p>Ser reconhecida como uma profissional que une conhecimento científico, sensibilidade humana e princípios éticos para transformar vidas de mulheres, fortalecendo autoestima, vínculos e relações mais saudáveis.</p>
+      <p>Ser reconhecida como uma profissional que une conhecimento científico, sensibilidade humana e princípios éticos para transformar vidas, fortalecendo autoestima, vínculos e relações mais saudáveis.</p>
     </div>
   </div>
 </section>
@@ -579,7 +579,7 @@ section{padding:80px 6vw;}
     <span class="eyebrow">Contato</span>
     <h2>Vamos conversar?</h2>
     <p class="lead">Entre em contato e dê o primeiro passo em direção ao seu bem-estar.</p>
-    <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-primary">Agendar pelo WhatsApp</a>
+    <a href="https://wa.me/5527995758687?text=Ol%C3%A1%2C%20Rosenilda!%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-primary">Inicie sua jornada pelo WhatsApp</a>
     <div class="contato-details">
       <div class="contato-list">
         <div class="contato-item">
@@ -650,12 +650,14 @@ section{padding:80px 6vw;}
   function toggleDrawer(){
     const isOpen = drawer.classList.toggle('open');
     overlay.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', String(isOpen));
     hamburger.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   }
   function closeDrawer(){
     drawer.classList.remove('open');
     overlay.classList.remove('open');
+    hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     hamburger.setAttribute('aria-label', 'Abrir menu');
   }
